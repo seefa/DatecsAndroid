@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="E:\PersianBank\Delfani\DatecsAndroid\app\src\main\assets"><file name="sample.png" path="E:\PersianBank\Delfani\DatecsAndroid\app\src\main\assets\sample.png"/></source><source path="E:\PersianBank\Delfani\DatecsAndroid\app\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\PersianBank\Delfani\DatecsAndroid\app\src\debug\assets"/></dataSet></merger>

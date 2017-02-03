@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout\\device_list.xml",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\layout\\device_list.xml"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_printer.xml",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\layout\\activity_printer.xml"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\layout\\device_node.xml",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\layout\\device_node.xml"
+    }
+]

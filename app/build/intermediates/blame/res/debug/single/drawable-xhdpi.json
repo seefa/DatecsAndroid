@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_tag.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_tag.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_page.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_page.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_fingerprint.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_fingerprint.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_info.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_info.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_card.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_card.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_read_barcode.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_read_barcode.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_bluetooth.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_bluetooth.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_text.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_text.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_self_test.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_self_test.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_barcode.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_barcode.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_bluetooth_paired.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_bluetooth_paired.png"
+    },
+    {
+        "merged": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_image.png",
+        "source": "E:\\PersianBank\\Delfani\\DatecsAndroid\\app\\src\\main\\res\\drawable-xhdpi\\ic_image.png"
+    }
+]

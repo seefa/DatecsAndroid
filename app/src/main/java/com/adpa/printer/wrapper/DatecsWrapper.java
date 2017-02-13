@@ -19,7 +19,7 @@ public class DatecsWrapper {
     private List<DatecsStyle> stringStyle;
 
     public enum PrinterType {
-        DPP250(24), DPP450(60), DPP350(50), DLP621(50), DK2300(50);
+        DPP250(24), DPP450(52), DPP350(50), DLP621(50), DK2300(50);
 
         private int length;
 
@@ -54,8 +54,8 @@ public class DatecsWrapper {
 
     public DatecsWrapper(Printer p, PrinterType printerType) {
         printer = p;
-        this.printerType = printerType;
-        stringStyle=new ArrayList<>();
+        DatecsWrapper.printerType = printerType;
+        stringStyle = new ArrayList<>();
         stringStyle.add(DatecsStyle.RESET);
     }
 
@@ -95,7 +95,7 @@ public class DatecsWrapper {
                 charWrap = PrinterType.DK2300.getLength();
                 break;
         }
-        charWrap = charWrap + getWrapperStringStyle();
+        charWrap = charWrap + getWrapperStringStyle(printerType);
 
         int lastBreak = 0;
         int nextBreak = charWrap;
@@ -209,29 +209,77 @@ public class DatecsWrapper {
         printer.printTaggedText(styles);
     }
 
-    public int getWrapperStringStyle() {
+    public int getWrapperStringStyle(PrinterType printerType) {
         int styleWrap = 0;
         if (stringStyle != null)
             for (DatecsStyle s : stringStyle) {
                 switch (s) {
                     case BOLD:
-                        styleWrap = 0;
+                        switch (printerType) {
+                            case DPP250:
+                                styleWrap = 0;
+                                break;
+                            case DPP450:
+                                styleWrap = 0;
+                                break;
+                            case DPP350:
+                                styleWrap = 0;
+                                break;
+                            case DLP621:
+                                styleWrap = 0;
+                                break;
+                            case DK2300:
+                                styleWrap = 0;
+                                break;
+                        }
                         break;
                     case SMALL:
-                        styleWrap = 7;
+                        switch (printerType) {
+                            case DPP250:
+                                styleWrap = 7;
+                                break;
+                            case DPP450:
+                                styleWrap = 15;
+                                break;
+                            case DPP350:
+                                styleWrap = 7;
+                                break;
+                            case DLP621:
+                                styleWrap = 7;
+                                break;
+                            case DK2300:
+                                styleWrap = 7;
+                                break;
+                        }
+
                         break;
                     case HIGH:
                         styleWrap = 0;
                         break;
                     case WIDE:
-                        styleWrap = -11;
+                        switch (printerType) {
+                            case DPP250:
+                                styleWrap = -11;
+                                break;
+                            case DPP450:
+                                styleWrap = -6;
+                                break;
+                            case DPP350:
+                                styleWrap = 7;
+                                break;
+                            case DLP621:
+                                styleWrap = 7;
+                                break;
+                            case DK2300:
+                                styleWrap = 7;
+                                break;
+                        }
                         break;
                     case RESET:
                         styleWrap = 0;
                         break;
                 }
             }
-
         return styleWrap;
     }
 

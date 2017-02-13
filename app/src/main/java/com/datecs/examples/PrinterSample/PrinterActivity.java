@@ -70,7 +70,7 @@ public class PrinterActivity extends Activity {
 
     // Interface, used to invoke asynchronous printer operation.
     private interface PrinterRunnable {
-        public void run(ProgressDialog dialog, Printer printer) throws IOException;
+        void run(ProgressDialog dialog, Printer printer) throws IOException;
     }
 
     // Member variables
@@ -115,7 +115,7 @@ public class PrinterActivity extends Activity {
         findViewById(R.id.btn_print_text).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                printText();
+                printText2();
 //                List<String> list= PersianFormatUtilOrginal.printWindows1256Characters();
 //                    printCustomText1(list);
 
@@ -858,49 +858,49 @@ public class PrinterActivity extends Activity {
 
                 printer.printTaggedText("{reset}{center}{b}");
 
-                textBuffer="شرکت آرمان پرداز آرنا";
+                textBuffer = "شرکت آرمان پرداز آرنا";
                 printer.printArabicText(24, textBuffer);
 
                 printer.printTaggedText("{br}{br}{reset}{right}{b}");
 
 
-                textBuffer="ارائه دهنده:";
+                textBuffer = "ارائه دهنده:";
                 printer.printArabicText(24, textBuffer);
 
                 printer.printTaggedText("{br}{br}{right}");
 
-                textBuffer="1. چاپگرهاي حرارتي";
+                textBuffer = "1. چاپگرهاي حرارتي";
                 printer.printArabicText(24, textBuffer);
 
                 printer.printTaggedText("{br}{s}{i}{right}");
 
-                textBuffer="2. صندوق هاي فروشگاهي هوشمند";
+                textBuffer = "2. صندوق هاي فروشگاهي هوشمند";
                 printer.printArabicText(24, textBuffer);
 
                 printer.printTaggedText("{br}------------------------{br}");
 
 
-                textBuffer="ا آ ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ي  ِ  ْ ّ ُ ً َ ـ » « ، ؛ ؟ هٔ ي أ ؤ ئ ء ٪ ٫ ٬ 0 1 2 3 4 5 6 7 8 9 ي ي | ئ ئ  | ي ي )(";
+                textBuffer = "ا آ ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ي  ِ  ْ ّ ُ ً َ ـ » « ، ؛ ؟ هٔ ي أ ؤ ئ ء ٪ ٫ ٬ 0 1 2 3 4 5 6 7 8 9 ي ي | ئ ئ  | ي ي )(";
                 printer.printArabicText(24, textBuffer);
 
                 printer.printTaggedText("{br}{b}------------------------{br}");
 
-                textBuffer="آب است، ولي کم است)در مصرف آب صرفه جويي کنيم(";
+                textBuffer = "آب است، ولي کم است)در مصرف آب صرفه جويي کنيم(";
                 printer.printArabicText(24, textBuffer);
 
                 printer.printTaggedText("{br}");
 
-                textBuffer=" با استفاده از چابگرهاي حرارتي داتــــــکس قابل حمل تجربه سرويس دهي سريع را تجربه کنيد.";
+                textBuffer = " با استفاده از چابگرهاي حرارتي داتــــــکس قابل حمل تجربه سرويس دهي سريع را تجربه کنيد.";
                 printer.printArabicText(24, textBuffer);
 
                 printer.printTaggedText("{br}{center}");
 
-                textBuffer="]5931-دي ماه[";
+                textBuffer = "]5931-دي ماه[";
                 printer.printArabicText(24, textBuffer);
 
                 printer.printTaggedText("{br}{b}************************{br}{center}{b}{u}");
 
-                textBuffer="با سپـــــــاس";
+                textBuffer = "با سپـــــــاس";
                 printer.printArabicText(24, textBuffer);
 
                 printer.printTaggedText("{br}{br}");
@@ -910,17 +910,18 @@ public class PrinterActivity extends Activity {
             }
         }, R.string.msg_printing_text);
     }
+
     private void printText() {
         Log.d(LOG_TAG, "Print Text");
 
         runTask(new PrinterRunnable() {
             @Override
             public void run(ProgressDialog dialog, Printer printer) throws IOException {
-                DatecsWrapper wrapper = new DatecsWrapper(printer, DatecsWrapper.PrinterType.DPP250);
+                DatecsWrapper wrapper = new DatecsWrapper(printer, DatecsWrapper.PrinterType.DPP450);
 
                 printer.reset();
 
-                List<DatecsStyle> l=new ArrayList<>();
+                List<DatecsStyle> l = new ArrayList<>();
 
 
                 l.add(DatecsStyle.RESET);
@@ -945,7 +946,8 @@ public class PrinterActivity extends Activity {
 
 
                 wrapper.setPrinterStyle("{reset}{br}{b}");
-                wrapper.printPersianText("------------------------");
+                wrapper.printPersianText("----------------------------------------------------");
+                wrapper.setPrinterStyle("{br}");
 
 
                 wrapper.printPersianText("آدرس دفتر و پخش مستقیم هورکا");
@@ -953,7 +955,7 @@ public class PrinterActivity extends Activity {
 
                 wrapper.setPrinterStyle("{reset}{br}{s}{right}");
 
-                wrapper.printPersianText("کیلومتر 20 جاده قدیم کرج-شهر قدس-بلوار انقلاب-خیابان شهید فصیحی-روبروی اداره کل آموزش و پرورش-شرکت پخش سایه سمن");
+                wrapper.printPersianText("کیلومتر 20 جاده قدیم کرج-شهر قدس-بلوار انقلاب-خیابان شهید فصیحی- روبروی اداره کل آموزش و پرورش-شرکت پخش سایه سمن");
 
                 wrapper.setPrinterStyle("{reset}{br}{s}{right}");
 
@@ -966,7 +968,7 @@ public class PrinterActivity extends Activity {
                 wrapper.setPrinterStyle("{reset}{br}{right}{b}");
 
                 ////////
-                wrapper.printPersianText("________________________");
+                wrapper.printPersianText("____________________________________________________");
 
                 wrapper.setPrinterStyle("{reset}{br}{right}");
 
@@ -989,7 +991,7 @@ public class PrinterActivity extends Activity {
 
                 wrapper.setPrinterStyle("{br}{right}{b}");
 
-                wrapper.printPersianText("________________________");
+                wrapper.printPersianText("____________________________________________________");
 
                 wrapper.setPrinterStyle("{reset}{br}{right}{s}");
 
@@ -1001,7 +1003,7 @@ public class PrinterActivity extends Activity {
                 wrapper.printPersianText("تلفن: 4682102288(تلفن شکایات و پیشنهادات: 889917496)");
 
                 wrapper.setPrinterStyle("{reset}{br}");
-                wrapper.printPersianText("________________________");
+                wrapper.printPersianText("____________________________________________________");
                 wrapper.setPrinterStyle("{br}{right}");
 
                 wrapper.printPersianText("تاریخ ویزیت: 1395/07/06      نوع پرداخت: نقد فقط");
@@ -1015,14 +1017,14 @@ public class PrinterActivity extends Activity {
                 wrapper.printPersianText("نشانی یا آدرس: سعادت آباد، شهرک مخابران، جنب مرکز خرید پرواز");
 
                 wrapper.setPrinterStyle("{br}{b}");
-                wrapper.printPersianText("------------------------");
+                wrapper.printPersianText("----------------------------------------------------");
                 wrapper.setPrinterStyle("{reset}{br}{right}{s}");
 
 
                 wrapper.printPersianText("ردیف     شرح کالا      تعداد    بهای کل    تخفیفات     اضافات");
 
                 wrapper.setPrinterStyle("{reset}{br}{b}");
-                wrapper.printPersianText("------------------------");
+                wrapper.printPersianText("----------------------------------------------------");
                 wrapper.setPrinterStyle("{reset}{br}{right}{s}");
 
 
@@ -1030,7 +1032,7 @@ public class PrinterActivity extends Activity {
 
 
                 wrapper.setPrinterStyle("{reset}{br}{b}");
-                wrapper.printPersianText("------------------------");
+                wrapper.printPersianText("----------------------------------------------------");
                 wrapper.setPrinterStyle("{reset}{br}{right}{s}");
 
 
@@ -1038,7 +1040,7 @@ public class PrinterActivity extends Activity {
 
 
                 wrapper.setPrinterStyle("{reset}{br}{b}");
-                wrapper.printPersianText("========================");
+                wrapper.printPersianText("====================================================");
                 wrapper.setPrinterStyle("{reset}{br}{right}");
 
 
@@ -1065,6 +1067,88 @@ public class PrinterActivity extends Activity {
         }, R.string.msg_printing_text);
     }
 
+    private void printText2() {
+        runTask(new PrinterRunnable() {
+                    @Override
+                    public void run(ProgressDialog dialog, Printer printer) throws IOException {
+                        DatecsWrapper wrapper = new DatecsWrapper(printer, DatecsWrapper.PrinterType.DPP450);
+                        String textBuffer = new String();
+
+                        printer.reset();
+
+                        List<String> testStrings = new ArrayList<String>();
+                        // sample text from http://www.hamyarit.com and http://uut.ac.ir and http://seefa.ir and http://118.tct.ir
+                        testStrings.add("امروزه افراد زیادی از واژه پرداز محبوب شرکت مایکروسافت یعنی “واژه پرداز مایکروسافت ورد” استفاده میکنند، این نرم\u200Cافزار در میان کاربران فارسی زبان نیز از اهمیت ویژه\u200Cای برخوردار است و خیلی از کاربران ویندوز اعم از کاربران حرفه\u200Cای و آماتور از این برنامه برای ایجاد و ویرایش اسناد متنی خود استفاده میکند، این ابزار با امکانات و ویژگی\u200Cهای منحصر به فرد خود کاربران زیادی را جذب کرده است و امکان ویرایش متون به اکثر زبان\u200Cهای رایج دنیا در آن وجود دارد که زبان فارسی نیز یکی از آن\u200Cهاست، در ادامه با همیار آی\u200Cتی همراه باشید تا با هم نحوه نگارش صحیح جملات فارسی را در نرم\u200Cافزار مایکروسافت ورد مرور کنیم.");
+                        testStrings.add("توجه: این کار تمام جملات شما را به صورت راست\u200Cچین نمایش میدهد، برای ارائه یک متن مرتب بهتر است Alignment را در حالت Justify قرار دهید.");
+                        testStrings.add("یکی از راه\u200Cهای تنظیم فونت استفاده از منوی Font در تب Home میباشد ولی اگر بخواهید فونت خاصی را به کل نوشته اختصاص دهید (به صورت مجزا برای کلمات فارسی و انگلیسی) باید طبق روش زیر عمل کنید.\n" +
+                                "مطابق تصویر زیر بر روی علامت کوچکی که در گوشه\u200Cی منوی Font قرار دارد کلیک کنید.");
+                        testStrings.add("شما میتوانید با هر نوع فونتی که تمایل داشته باشید متن خود را بنویسید ولی اگر از یک فونت مناسب که برای زبان فارسی بهینه شده استفاده کنید زیبایی و خوانایی متن شما دو چندان خواهد شد، پس همواره این نکته را به یاد داشته باشید، معمولا فونت\u200Cهایی که با حروفی مانند B- یا IR- و Fa- آغاز میشوند مناسب نگارش فارسی هستند (البته استثنائاتی نیز در اینجا وجود دارد)");
+                        testStrings.add("سعی کنید همیشه و در محل مناسب از علائم نگارشی استفاده کنید تا متن شما راحت\u200Cتر قابل خواندن باشد، اجزای اصلی علائم نگارشی در زبان پارسی شامل [\u200C؟\u200C!\u200C. ،: ؛ ” ” () … ] میشوند، البته نحوه استفاده از آن\u200Cها نیز اصول خاصی دارد که در ادامه به آن\u200Cها می\u200Cپردازیم.");
+                        testStrings.add("پس از اینکه جمله\u200Cی مورد نظر خود را نوشتید در انتهای جمله و بدون درج هیچ\u200Cگونه فاصله\u200Cای علامت مناسب را قرار داده و سپس یک فاصله (Space) درج کنید.\n" +
+                                "الگوی صحیح استفاده از این علائم به این صورت است:\n" +
+                                "… [عبارت] [علائم نگارشی] [فاصله] [عبارت] …");
+                        testStrings.add("شیوه نادرست:\n" +
+                                "عبارت قبل( عبارت میان پرانتز  )عبارت بعد\n" +
+                                "[  عبارت داخل کروشه  ]عبارت بعد\n" +
+                                "عبارت”  داخل گیومه  “");
+
+                        testStrings.add("شیوه صحیح:\n" +
+                                "عبارت قبل (عبارت میان پرانتز) عبارت بعد\n" +
+                                "[عبارت داخل کروشه] عبارت بعد\n" +
+                                "عبارت “داخل گیومه”");
+
+                        testStrings.add("استفاده از علائم ساده\u200Cی ریاضی\n" +
+                                "یکی دیگر از نشانه\u200Cهایی که به استفاده از آن\u200Cها احتیاج پیدا خواهید کرد علامت\u200Cهای ساده\u200Cی ریاضی مانند: + – *  / ٪ هستند، به یاد داشته باشید علامت درصد باید به عدد قبلی خود چسبیده باشد (بدون فاصله) ولی قبل و بعد از علامت\u200Cهای +، – و … فاصله ایجاد کنید.\n" +
+                                "نحوه\u200Cی صحیح به این صورت است:\n" +
+                                "۸۵٪\n" +
+                                "۲ + ۳\n" +
+                                "Shift + Enter\n" +
+                                "رعایت نکات بالا باعث میشود جملات تایپ شده در رایانه به صورت صحیح در تمام صفحات نمایش داده شوند (چراکه کامپیوتر با هر فاصله\u200Cای کلمه\u200Cی قبل و بعد را دو کلمه\u200Cی واحد و مجزا به حساب می\u200Cآورد و این امکان وجود دارد که بخشی از کلمه یا علامت آن به سطر بعدی منتقل شود، همچنین توجه داشته باشید که نیم\u200Cفاصله نیز به همین صورت عمل میکند، اگر با نیم فاصله آشنا نیستید این آموزش را ببینید: آموزش تصویری درج نیم\u200Cفاصله در مایکروسافت ورد)");
+
+                        testStrings.add("برای وارد كردن اعداد كسری مانند ¼، ½ و ¾ كه در كیبوردهای كامپیوتر دیده نمی شوند می توان به ترتیب كدهای Alt0188, Alt0189, Alt0190 را به كار برد. برای تایپ اعداد حتماً باید از قسمت Numeric Pad كه در سمت راست كیبورد قرار گرفته است استفاده شود.");
+                        testStrings.add("13) جابجایی متن: با ترفند زیر به راه حلی راحت و سریع برای كپی و یا جابجایی قسمتی از متن دست خواهید یافت: ابتدا متن و یا گرافیكی را كه تصمیم به حركت آن دارید علامت گذاری كنید. صفحه تصویر را با كمك حاشیه\u200Cهای آن كه در سمت راست و گوشه قابل حركتند. به قدری جابجا كنید كه مكانی را كه می\u200Cخواهید عنصر مربوطه به آن اضافه شود كاملا در دید قرار بگیرد. سپس برای جابجایی دكمه <Ctrl> و برای كپی كردن تركیب دكمه\u200Cهای <Ctrl>-<Shift> را كلیك كرده و با دكمه راست موش بر روی مقصد كلیك كنید.");
+                        testStrings.add("15) بایگانی فایل : اینكه نرم\u200Cافزار Word چه پوشه\u200Cای را به صورت استاندارد در زمان استفاده از گزینه\u200Cهای File->Open یا File->Save نشان می\u200Cدهد می\u200Cتوانید شخصا تعیین كنید تنظیمات مربوطه را می\u200Cتوانید در Tools->Options->File locations->Documents بیابید. اینكه فایل\u200Cهایی را كه شخصا درست كرده و به صورت الگو در آورده\u200Cاید در كجا ثبت می\u200Cشوند، نیز در همان بخش، قسمت User templates قابل مشاهده\u200Cاند. نرم\u200Cافزار Word هنگامی كه شما برای ذخیره نوع فایلی DOT را انتخاب كنید از این دایركتوری استفاده می\u200Cكند.\n" +
+                                "توسط دكمه Modify در همان بخش می\u200Cتوانید تنظیمات مربوطه را تغییر داده و تعیین كنیدكه برای مثال\u200C فایل\u200Cهای DOT و DOC در كجا ذخیره شوند. \n");
+                        testStrings.add(" نوشته شده توسط تيم توسعه سيفا\n" +
+                                " دسته: main-contents\n" +
+                                " منتشر شده در 05 شهریور 1394\n" +
+                                " بازدید: 1145");
+                        testStrings.add("جهت ارائه هرگونه پیشنهادات و انتقادات در مورد این سایت و کدهای خدماتی  118 - 20119 - 191 - 192 - 20126   میتوانید با شماره تلفن 20196 تماس بگیرید .");
+                        testStrings.add("1. تاریخ را به فرمت تاریخ میلادی بنویسیم ولی در قسمت format cell>custom فرمت ان را به صورت yy/mm/ddنوشت در این حالت تاریخ 21/05/1987 به صورت 21/05/87دیده میشوددراین حالت تاریخها به راحتی مقایسه میشوند و فرمت اطلاعات هم تاریخ هست و لی از نظر محاسبات روی تاریخ مشکل داریم مثلا ما تاریخ 31/03/87در تاریخ شمسی داریم ولی در تاریخ میلادی این تاریخ وجود ندارد چون ماه 3 انها 31 روزه نمیباشد و مشکل دوم اگر از توابع فاصله بین 2 تاریخ استفاده کنیم جواب با خطائ روبرو میشود.");
+                        testStrings.add("یک باگ جالب در مورد فرمول dayweek هست. این فرمول قرار است روز هفته یک تاریخ مشخص را برگرداند. طبق بررسی من، از امروز به عقب تا تاریخ 1380/10/11 (سه شنبه) این فرمول درست کار می کند ولی روز قبلش را اشتباه نشان می دهد");
+                        testStrings.add("شماره درخواست: 101033");
+                        testStrings.add("کیلومتر 20 جاده قدیم کرج-شهر قدس-بلوار انقلاب-خ رازی-پ 40-کدپستی 6816877889");
+                        testStrings.add("تلفن: 021-46467878 ، 021-98743200");
+                        testStrings.add("فکس: 021-09097676");
+                        testStrings.add("شماره ثبت/شماره ملی: 115361");
+                        testStrings.add("کد پستی 10 رقمی: 1399837711");
+                        testStrings.add("تلفن:88800892(تلفن شکایات و پیشنهادات: 88917049)");
+                        testStrings.add("تاریخ ویزیت: 1395/07/06              نوع پرداخت : نقدی");
+                        testStrings.add("نام خریدار: پوراحمدی، (مسجد سجاد) کد خریدار: 2011574");
+                        testStrings.add("نام فروشنده: 20725- بهمن حسنی");
+                        testStrings.add("ردیف |     شرح کالا      |    تعداد   |   بهای کل    |   تخفیفات | اضافات |");
+                        testStrings.add("1  |   شربت پرتقال14   |   2   |  1392528  |  0)0.0(  | 125326 |");
+                        testStrings.add("============================================================================");
+                        testStrings.add("جمع کل: 278560056 جمع اضافات: 250652 جمع تخفیفات: 0.0");
+                        testStrings.add("2 || شربت پرتقال13      2 || 139538  || 0(12.346%)  || 125326");
+                        StringBuffer sb = new StringBuffer();
+                        for (String s :
+                                testStrings
+                                ) {
+                            sb.append(s);
+                        }
+
+                        wrapper.printPersianText(sb.toString());
+
+                        printer.feedPaper(20);
+                        printer.flush();
+
+                    }
+                }
+
+                , R.string.msg_printing_text);
+    }
+
     private void printText1() {
         runTask(new PrinterRunnable() {
             @Override
@@ -1073,15 +1157,15 @@ public class PrinterActivity extends Activity {
                 String textBuffer = new String();
 
                 printer.reset();
-                List<DatecsStyle> l=new ArrayList<>();
+                List<DatecsStyle> l = new ArrayList<>();
 
-                textBuffer="آدرس دفتر و پخش مستقیم هورکا";
+                textBuffer = "آدرس دفتر و پخش مستقیم هورکا";
                 l.add(DatecsStyle.BOLD);
                 wrapper.setPrinterStyle(l);
                 wrapper.printPersianText(textBuffer);
                 l.clear();
 
-                textBuffer="آدرس دفتر و پخش مستقیم هورکا";
+                textBuffer = "آدرس دفتر و پخش مستقیم هورکا";
                 wrapper.setPrinterStyle("{br}{s}");
                 wrapper.setPrinterStyle(l);
                 wrapper.printPersianText(textBuffer);
@@ -1099,7 +1183,7 @@ public class PrinterActivity extends Activity {
         runTask(new PrinterRunnable() {
             @Override
             public void run(ProgressDialog dialog, Printer printer) throws IOException {
-                DatecsWrapper wrapper = new DatecsWrapper(printer, DatecsWrapper.PrinterType.DPP250);
+                DatecsWrapper wrapper = new DatecsWrapper(printer, DatecsWrapper.PrinterType.DPP450);
 
                 printer.reset();
                 wrapper.printPersianText(text);
@@ -1108,6 +1192,7 @@ public class PrinterActivity extends Activity {
             }
         }, R.string.msg_printing_text);
     }
+
     private void printCustomText1(final List<String> list) {
         Log.d(LOG_TAG, "Print Text");
 
@@ -1115,7 +1200,7 @@ public class PrinterActivity extends Activity {
             @Override
             public void run(ProgressDialog dialog, Printer printer) throws IOException {
                 printer.reset();
-                for (String s:list) {
+                for (String s : list) {
                     printer.printArabicText(24, s);
                     printer.printTaggedText("{br}");
                     printer.feedPaper(10);

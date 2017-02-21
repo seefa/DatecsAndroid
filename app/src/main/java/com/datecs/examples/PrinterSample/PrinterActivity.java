@@ -115,7 +115,7 @@ public class PrinterActivity extends Activity {
         findViewById(R.id.btn_print_text).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                printText2();
+                printText();
 //                List<String> list= PersianFormatUtilOrginal.printWindows1256Characters();
 //                    printCustomText1(list);
 
@@ -1183,6 +1183,7 @@ public class PrinterActivity extends Activity {
         runTask(new PrinterRunnable() {
             @Override
             public void run(ProgressDialog dialog, Printer printer) throws IOException {
+
                 DatecsWrapper wrapper = new DatecsWrapper(printer, DatecsWrapper.PrinterType.DPP450);
 
                 printer.reset();

@@ -1,4 +1,4 @@
-#Sun Feb 12 22:43:07 IRST 2017
+#Tue Feb 21 20:17:23 IRST 2017
 base.0=E\:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
 file.0=E\:\\PersianBank\\Delfani\\DatecsAndroid\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

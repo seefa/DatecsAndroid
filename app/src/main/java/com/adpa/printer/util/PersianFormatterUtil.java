@@ -21,8 +21,7 @@ class PersianFormatterUtil implements PersianFormatter {
      * @param persianNumberText input Persian number charsets
      * @return converted String Persian number charsets to Latin unicode
      */
-
-    private static String convertNumberChars(String persianNumberText) {
+    public static String convertNumberChars(String persianNumberText) {
         persianNumberText = persianNumberText
                 .replace('\u06F0', '\u0030')
                 .replace('\u06F1', '\u0031')
@@ -56,7 +55,7 @@ class PersianFormatterUtil implements PersianFormatter {
      * @param persianCharsText Persian characters to supported ones
      * @return converted String after replacing supported characters
      */
-    private static String convertSpecialChars(String persianCharsText) {
+    public static String convertSpecialChars(String persianCharsText) {
 
         persianCharsText = persianCharsText
                 .replace('\u061F', '\u003F')    // Question mark
@@ -84,7 +83,7 @@ class PersianFormatterUtil implements PersianFormatter {
      * @param mirrorCharsText input text consists of mirror characters
      * @return result of changing mirror characters
      */
-    private static String convertMirrorChars(String mirrorCharsText) {
+    public static String convertMirrorChars(String mirrorCharsText) {
         Map<Integer, Character> mirrorsMap = new HashMap<Integer, Character>();
         char[] mirrorChars = new char[mirrorCharsText.length()];
         mirrorCharsText.getChars(0, mirrorCharsText.length(), mirrorChars, 0);
@@ -117,7 +116,8 @@ class PersianFormatterUtil implements PersianFormatter {
      * @param inputText A Persian text consists of number or non-Persian characters
      * @return result of method after reversing numbers and non-Persian characters
      */
-    private static String reverseNumberAndNonPersianCharacters(String inputText) {
+
+    public static String reverseNumberAndNonPersianCharacters(String inputText) {
 
         Pattern p = Pattern.compile("(([\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FF]+[\\u0021-\\u007E\\u00A1-\\u05FF\\u0660-\\u066D\\u06F0-\\u06F9\\u0700-\\uFFFF][\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FF]*)|" +
                 "([\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FF]+[\\u0000-\\u001F\\u007F-\\u00A0]*[\\u0600-\\u065F\\u066A-\\u06EF\\u06FA-\\u06FF]*)|" +
@@ -174,8 +174,53 @@ class PersianFormatterUtil implements PersianFormatter {
         return sbAfterChange.toString();
     }
 
+    /***
+     * This method used for detecting numbers and non-Persian characters for reversing them, because they print incorrect in RTL printing.
+     * @param inputText A Persian text consists of number or non-Persian characters
+     * @return result of method after reversing numbers and non-Persian characters
+     */
+    public static String reverseNumberAndNonPersianWords(String inputText) {
+        // TODO: A5-B4 had problem
+        Pattern p = Pattern.compile("(([a-zA-Z]+[-\\s,]+){2,})|([0-9]+[a-zA-Z]*[-]+[0-9a-zA-Z\\s]*){2,}|([0-9]+[a-zA-Z]*[-]+[0-9a-zA-Z\\s]+)");
+        Matcher m = p.matcher(inputText);
+        StringBuilder sbAfterChange = new StringBuilder();
+        int position = 0;
+        while (m.find()) {
+            String words = m.group();
+            if (inputText.indexOf(words) > position) {
+                sbAfterChange.append(inputText.substring(position, inputText.indexOf(words)));
+                position = inputText.indexOf(words) + words.length();
+            }
+            Pattern p2 = Pattern.compile("([a-zA-Z]+[-\\s,]+)|([0-9]+[a-zA-Z]*[-\\s]*)");
+            Matcher m2 = p2.matcher(words);
+            StringBuffer sbWords = new StringBuffer();
+            while (m2.find()) {
+                String oneWord = m2.group();
+                Pattern p3 = Pattern.compile("([a-zA-Z]+)|([0-9]+[a-zA-Z]*)");
+                Matcher m3 = p3.matcher(oneWord);
+                while (m3.find()) {
+                    String word = m3.group();
+                    String lastPart = oneWord.substring(m3.group().length(), oneWord.length());
+                    if (lastPart.equals(" "))
+                        sbWords.insert(0, word + lastPart);
+                    else
+                        sbWords.insert(0, lastPart + word);
+                }
+            }
+//            sbAfterChange.append(inputText.substring(0, inputText.indexOf(words)));
+            sbAfterChange.append(sbWords);
+//            sbAfterChange.append(inputText.substring(sbAfterChange.length(), inputText.length()));
+        }
+        if (position < inputText.length()) {
+            sbAfterChange.append(inputText.substring(position, inputText.length()));
+        }
+        return sbAfterChange.toString();
+    }
+
+
     /**
      * This method used as facade method to encapsulate Persian characters formatting
+     *
      * @param inputText is input value for applying formatting
      * @return after applying formatting methods, prepared text will turn back
      */
@@ -184,6 +229,7 @@ class PersianFormatterUtil implements PersianFormatter {
         result = PersianFormatterUtil.convertSpecialChars(result);
         result = PersianFormatterUtil.convertMirrorChars(result);
         result = PersianFormatterUtil.reverseNumberAndNonPersianCharacters(result);
+        result = PersianFormatterUtil.reverseNumberAndNonPersianWords(result);
         return result;
     }
 }
